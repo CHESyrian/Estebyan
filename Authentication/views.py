@@ -16,6 +16,7 @@ def Signing_Up(request):
     )
     New_User.first_name = request.POST.get('FirstName_Input')
     New_User.last_name = request.POST.get('LastName_Input')
+    New_User.set_password(request.POST.get('Password_Input'))
     New_User.save()
     user_instance = User.objects.get(username=request.POST.get('UserName_Input'))
     ID = "QP%s" %str(user_instance.id).zfill(10)

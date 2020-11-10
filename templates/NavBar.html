@@ -5,7 +5,7 @@
   <a class="Nav-Logo cl-white" href="{% url 'Home' %}">Estebyan</a>
   <div class="Nav-List res-flex-col">
     {% if  request.user.is_authenticated %}
-    <a class="Nav-Link hover-link" href="#">Account</a>
+    <a class="Nav-Link hover-link" href="{% url 'MyProfile' request.user.username %}">Account</a>
     {% else %}
     <a class="Nav-Link hover-link" href="{% url 'Login' %}">Login</a>
     {% endif %}

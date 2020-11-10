@@ -6,11 +6,11 @@ import json
 
 
 # Create your views here.
-#@login_required(login_url='/authentication/login/')
+@login_required(login_url='/authentication/login/')
 def Add_Questionnaire(request):
     return render(request, 'Questionnaire/add_questionnaire.html')
 
-
+@login_required(login_url='/authentication/login/')
 def Make_Questionnaire(request):
     #Q1_CH1_Input, Q1_Input, AnswerType_1, Questions_Num, Keyword1_Input
     Questions_Count = int(request.POST.get('Questions_Num'))
