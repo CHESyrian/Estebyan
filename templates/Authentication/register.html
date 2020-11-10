@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block Content %}
+  <div class="Content flex-column Register-Section">
+    <label class="lbl pb-10 w-80 br-0 bb-2sb font-72 my-10 text-center">Estebyan | Questionnaire</label>
+    <form class="Register-Form flex-column" action="{% url 'Signing_Up' %}" method="post">
+      {% csrf_token %}
+      <div class="field w-60 flex-row">
+        <label class="lbl w-30" for="FirstName_Input">First Name</label>
+        <input class="npt flex-grow" type="text" name="FirstName_Input" value="" required>
+      </div>
+      <div class="field w-60 flex-row">
+        <label class="lbl w-30" for="LastName_Input">Last Name</label>
+        <input class="npt flex-grow" type="text" name="LastName_Input" value="" required>
+      </div>
+      <div class="field w-60 flex-row">
+        <label class="lbl w-30" for="Birthdate_Input">Birthdate</label>
+        <input class="npt flex-grow" type="date" name="Birthdate_Input" value="" required>
+      </div>
+      <div class="field w-60 flex-row">
+        <label class="lbl w-30" for="UserName_Input">User Name</label>
+        <input class="npt flex-grow" type="text" name="UserName_Input" value="" required>
+      </div>
+      <div class="field w-60 flex-row">
+        <label class="lbl w-30" for="Email_Input">Email</label>
+        <input class="npt flex-grow" type="email" name="Email_Input" value="" required>
+      </div>
+      <div class="field w-60 flex-row">
+        <label class="lbl w-30" for="Password_Input">Password</label>
+        <input class="npt flex-grow" type="password" name="Password_Input" value="" required>
+      </div>
+      <div class="field w-60 flex-row">
+        <label class="lbl w-30" for="ConfPassword_Input">Confirm Password</label>
+        <input class="npt flex-grow" type="password" name="ConfPassword_Input" value="" required>
+      </div>
+      <div class="field w-60 flex-row">
+        <input class="npt npt-submit flex-grow" type="submit" name="SignUp_Input" value="Sign Up">
+      </div>
+    </form>
+  </div>
+{% endblock %}

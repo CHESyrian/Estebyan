@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'Bootstrap/css/bootstrap.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/style-classes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/all.css' %}">
+    <title>{% block Title %} Estebyan {% endblock %}</title>
+  </head>
+
+  <body>
+    <div id="Container">
+      {% block NavBar %}
+      {% include 'NavBar.html' %}
+      {% endblock %}
+
+      {% block SideBar %}
+      {% include 'SideBar.html' %}
+      {% endblock %}
+
+      {% block Content %}
+      {% include 'Content.html' %}
+      {% endblock %}
+    </div>
+    <!-- JavaScript Files -->
+    <script src="{% static 'js/jquery-3.5.1.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'font-awesome/js/all.js' %}"></script>
+    <!-- <script src="{% static 'Bootstrap/js/bootstrap.js' %}"></script> -->
+    {% block Scripts %}
+    {% endblock %}
+  </body>
+</html>

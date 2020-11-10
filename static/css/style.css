@@ -1,0 +1,148 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(160, 250, 160);
+}
+/*------------------------- Container -------------------------*/
+.Container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+/*------------------------- NavBar -------------------------*/
+.NavBar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 70px;
+  line-height: 70px;
+  background-color: rgb(120, 220, 120);
+}
+.Sandwish {
+  height: 70px;
+  line-height: 70px;
+  font-size: 32px;
+  color: #fff;
+  margin: 0 12px;
+  cursor: pointer;
+}
+.Nav-Logo {
+  color: #666;
+  text-decoration: none;
+  text-align: left;
+  margin-right: 12px;
+  font-size: 32px;
+}
+.Nav-List {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0 8px;
+}
+.Nav-Link {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  width: 100px;
+  text-align: center;
+}
+.Nav-Search {
+  padding: 0 10px;
+  line-height: 70px;
+}
+.Search-Input {
+  font-size: 18px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 6px;
+  width: 300px;
+  outline: none;
+}
+.Search-Button {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+.Search-Button:hover {
+  background-color: rgb(20, 200, 20);
+  color: #fff;
+}
+/*------------------------- SideBar -------------------------*/
+.SideBar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-flow: column;
+  width: 0;
+  overflow: auto;
+  transition: width 1s linear;
+}
+.SideBar-Title {
+  text-align: center;
+}
+.SideBar-List {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0 10px;
+}
+.SideBar-Link {
+  text-decoration: none;
+  height: 30px;
+  line-height: 30px;
+  margin: 3px 0;
+  background-color: rgb(120, 220, 120);
+  text-align: left;
+  padding-left: 10px;
+  color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+/*-------------------------- Content --------------------------*/
+.Content {
+  width: 100%;
+  transition: width 1s linear;
+  position: fixed;
+  top: 70px;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+/*------------------------- Register -------------------------*/
+div[class^=QField] {
+  border-radius: 8px;
+  border: 1px solid #777;
+  margin: 14px auto;
+}
+/*------------------------- Questionnaire - Add -------------------------*/
+
+/*-------------------------- Animations --------------------------*/
+@keyframes ShowSideBar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 15%;
+  }
+}
+@keyframes ResizeMain {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 85%;
+  }
+}
+@keyframes HideSideBar {
+  0% {
+    width: 15%;
+  }
+  100% {
+    width: 0;
+  }
+}

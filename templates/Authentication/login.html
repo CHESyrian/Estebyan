@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block Content %}
+<div class="Content flex-column">
+  <label class="lbl pb-10 w-80 br-0 bb-2sb font-72 my-10 text-center">Estebyan | Questionnaire</label>
+  <form class="Login-Form flex-column w-80" action="{% url 'Logging' %}" method="post">
+    {% csrf_token %}
+    <div class="field w-60 flex-row">
+      <label class="lbl w-30" for="UserName_Input">User Name</label>
+      <input class="npt flex-grow" type="text" name="UserName_Input">
+    </div>
+    <div class="field w-60 flex-row">
+      <label class="lbl w-30" for="Password_Input">Password</label>
+      <input class="npt flex-grow" type="password" name="Password_Input">
+    </div>
+    <div class="field w-60 flex-row">
+      <input class="btn npt-submit flex-grow" type="submit" name="Login_Input" value="Login">
+    </div>
+  </form>
+  <div class="field w-60">
+    <p class="text-center font-24">You haven't an account?. So please<a href="{% url 'Register' %}" class="not-link cl-blue hover-lime bold"> Register </a>now.</p>
+  </div>
+</div>
+{% endblock %}

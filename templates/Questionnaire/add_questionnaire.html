@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block Content %}
+<div class="Content flex-column my-15">
+  <form id="Q-Form" class="Q-Form flex-column my-5 w-85" action="{% url 'Make_Questionnaire' %}" method="post">
+    {% csrf_token %}
+    <div class="field flex-row w-90">
+      <label class="lbl font-24 w-40 mr-50" for="Title">Questionnaire Title</label>
+      <input class="npt font-24 flex-grow" type="text" name="Title" required>
+    </div>
+    <div class="QField-1 field flex-column w-90">
+      <div class="field flex-row w-90">
+        <label class="lbl w-20" for="Q1_Input">Question 1 :</label>
+        <input class="npt flex-grow" type="text" name="Q1_Input" required>
+      </div>
+      <div class="field flex-row w-90">
+        <label class="lbl w-20" for="Keyword1_Input">Keyword </label>
+        <input class="npt flex-grow" type="text" name="Keyword1_Input" placeholder="Short word to use as column name in table (ex. Age, Gender, Country, Job)" required>
+      </div>
+      <div class="field flex-row w-90">
+        <div class="field w-25">
+          <label class="lbl">Free</label>
+          <input class="FreeRadio-1" type="radio" name="AnswerType_1" value="text" checked>
+        </div>
+        <div class="field w-25">
+          <label class="lbl">Number</label>
+          <input class="NumberRadio-1" type="radio" name="AnswerType_1" value="number">
+        </div>
+        <div class="field w-25">
+          <label class="lbl">Date</label>
+          <input class="DateRadio-1" type="radio" name="AnswerType_1" value="date">
+        </div>
+        <div class="field w-25">
+          <label class="lbl">Choices</label>
+          <input class="ChoicesRadio-1" type="radio" name="AnswerType_1" value="select">
+        </div>
+      </div>
+      <div class="Q1-Choices field justify-center w-90 hidden">
+        <div class="QChoice-1-1 field flex-row w-100">
+          <label class="lbl w-20" for="Q1_CH1_Input">Choice 1 :</label>
+          <input class="npt flex-grow" type="text" name="Q1_CH1_Input">
+        </div>
+        <label class="Add-QChoice-1 lbl lbl-add w-85 justify-center hover-aaa">+Add Choice</label>
+        <input type="hidden" name="Q1_Choices_Num" value="1">
+      </div>
+    </div>
+  </form>
+  <label class="Add-QField lbl lbl-add w-60 my-5 hover-aaa">+Add Question</label>
+  <input type="hidden" name="Questions_Num" value="1" form="Q-Form">
+  <input class="npt npt-submit w-60 my-5" type="submit" name="Submit" value="Submit" form="Q-Form">
+</div>
+{% endblock %}

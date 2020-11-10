@@ -1,0 +1,197 @@
+/*-------------------------- Elements --------------------------*/
+.lbl {
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.lbl-add {
+  background-color: #888;
+  color: lime;
+  cursor: pointer;
+  text-align: center;
+}
+.txr {
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: none;
+}
+.txr:focus {
+  border: 2px solid lime;
+}
+.btn {
+  border-radius: 6px;
+  padding: 4px 10px;
+  border: none;
+  cursor: pointer;
+}
+.npt {
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  padding: 4px 6px;
+}
+.npt:focus {
+  border: 2px solid rgb(20, 200, 20);
+}
+.npt-submit {
+  background-color: rgb(110, 230, 110);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.npt-submit:hover {
+  background-color: lime;
+}
+.field {
+  margin: 10px auto;
+}
+/*-------------------------- Text --------------------------*/
+.text-center {
+  text-align: center;
+}
+.not-link {
+  text-decoration: none;
+}
+/*-------------------------- Width --------------------------*/
+.w-10 {
+  width: 10%;
+}
+.w-15 {
+  width: 15%;
+}
+.w-20 {
+  width: 20%;
+}
+.w-25 {
+  width: 25%;
+}
+.w-30 {
+  width: 30%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-60 {
+  width: 60%;
+}
+.w-85 {
+  width: 85%;
+}
+.w-90 {
+  width: 90%;
+}
+.w-100 {
+  width: 100%;
+}
+/*-------------------------- Height - Line Height --------------------------*/
+.h-60 {
+  height: 60px;
+}
+.h-lh-45 {
+  height: 45px;
+  line-height: 45px;
+}
+.h-lh-60 {
+  height: 60px;
+  line-height: 60px;
+}
+/*-------------------------- Background Colors --------------------------*/
+
+/*-------------------------- Color --------------------------*/
+.cl-cyan {
+  color: cyan;
+}
+.cl-lime {
+  color: lime;
+}
+.cl-blue {
+  color: blue;
+}
+.cl-white {
+  color: white;
+}
+/*-------------------------- Pseudo Class --------------------------*/
+.hover-aaa:hover {
+  background-color: #aaa;
+}
+.hover-lime:hover {
+  color: lime;
+}
+.hover-link:hover {
+  background-color: rgb(20, 200, 20);
+  color: #fff;
+}
+/*-------------------------- Font Style --------------------------*/
+.font-24 {
+  font-size: 24px;
+}
+.font-28 {
+  font-size: 28px;
+}
+.font-32 {
+  font-size: 32px;
+}
+.font-72 {
+  font-size: 72px;
+}
+.bold {
+  font-style: bold;
+}
+/*-------------------------- Border --------------------------*/
+.bsb {
+  border: 1px solid black;
+}
+.bb-2sb {
+  border-bottom: 2px solid black;
+}
+/*-------------------------- Border Radius --------------------------*/
+.br-0 {
+  border-radius: 0;
+}
+/*-------------------------- Margin --------------------------*/
+.my-5 {
+  margin: 5px auto;
+}
+.my-10 {
+  margin: 10px auto;
+}
+.my-15 {
+  margin: 15px auto;
+}
+.mx-10 {
+  margin: auto 10px;
+}
+.mr-50 {
+  margin-right: 50px;
+}
+/*-------------------------- Padding --------------------------*/
+.pb-10 {
+  padding-bottom: 10px;
+}
+/*-------------------------- Cursor --------------------------*/
+.pointer {
+  cursor: pointer;
+}
+/*-------------------------- Display --------------------------*/
+.flex {
+  display: flex;
+}
+.hidden {
+  display: none;
+}
+/*-------------------------- Display-Flex --------------------------*/
+.flex-column {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.flex-row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.justify-center {
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+/*------------------------- Effects -------------------------*/
