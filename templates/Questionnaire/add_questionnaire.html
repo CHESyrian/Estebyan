@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block Content %}
 <div class="Content flex-column my-15">
-  <form id="Q-Form" class="Q-Form flex-column my-5 w-85" action="{% url 'Make_Questionnaire' %}" method="post">
+  <form id="Q-Form" class="Q-Form flex-column my-5 w-85" action="{% url 'Make_Questionnaire' request.user.username %}" method="post">
     {% csrf_token %}
     <div class="field flex-row w-90">
       <label class="lbl font-24 w-40 mr-50" for="Title">Questionnaire Title</label>

@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
 {% block Content %}
-  <h1 class="Content"> Profile : {{ User }} </h1>
+  <div class="Content flex-column">
+    <h1> Profile : {{ User }} </h1>
+    <a href="{% url 'Add_Questionnaire' request.user.username %}">Add Questionnaire</a>
+  </div>
 {% endblock %}
