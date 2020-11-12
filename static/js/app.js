@@ -9,6 +9,7 @@ $(document).ready(function() {
     var fieldNum = $('div[class^="QField"]').length + 1;
     var QElem = '\
       <div class="QField-' + fieldNum + ' field flex-column w-90">\
+        <span class="Close-Q-' + fieldNum + ' font-24 cl-red rtl mr-10 pointer">&times;</span>\
         <div class="field flex-row w-90">\
           <label class="lbl w-20" for="Q' + fieldNum + '_Input">Question ' + fieldNum + ' :</label>\
           <input class="npt flex-grow" type="text" name="Q' + fieldNum + '_Input" required>\
@@ -52,11 +53,11 @@ $(document).ready(function() {
   $(document).on('click', 'label[class^="Add-QChoice"]', function() {
     var fieldNum = this.className.split(' ')[0].split('-')[2];
     var choiceNum = Number($('input[name="Q' + fieldNum + '_Choices_Num"]').val()) + 1;
-    alert(choiceNum);
     var choice = '\
       <div class="QChoice-' + fieldNum + '-' + choiceNum + ' field flex-row w-100">\
         <label class="lbl w-20" for="Q' + fieldNum + '_CH' + choiceNum + '_Input">Choice ' + choiceNum + ' :</label>\
         <input class="npt flex-grow" type="text" name="Q' + fieldNum + '_CH' + choiceNum + '_Input" required>\
+        <span class="Close-Ch-' + fieldNum + '-' + choiceNum + ' font-24 cl-red bold ml-10 pointer">&times;</span>\
       </div>';
     $('label[class^="Add-QChoice-' + fieldNum + '"]').before(choice);
     $('input[name="Q' + fieldNum + '_Choices_Num"]').val(choiceNum);
@@ -75,15 +76,25 @@ $(document).ready(function() {
     $('div[class^="Q' + fieldNum + '-Choices"]').addClass('hidden');
     $('input[name^="Q' + fieldNum + '_CH"]').removeAttr('required');
   })
+  // Remove Question.
+  $(document).on('click', 'span[class^="Close-Q"]', function() {
+    var fieldNum = this.className.split(' ')[0].split('-')[2];
+    $('.QField-' + fieldNum).remove();
+    var currentQFields = Number($('input[name="Questions_Num"]').val());
+    $('input[name="Questions_Num"]').val(currentQFields - 1);
+  })
+  // Remove Choice.
+  $(document).on('click', 'span[class^="Close-Ch"]', function() {
+    var fieldNum = this.className.split(' ')[0].split('-')[2];
+    var choiceNum = this.className.split(' ')[0].split('-')[3];
+    $('.QChoice-' + fieldNum + '-' + choiceNum).remove()
+    var currentChoices = Number($('input[name="Q' + fieldNum + '_Choices_Num"]').val());
+    $('input[name="Q' + fieldNum + '_Choices_Num"]').val(currentChoices - 1);
+  })
 
 })
 
 /*
-X 1- Show SideBar. X
-X 2- Add Question. X
-X 3- Add Choice. X
-X 4- ClickOn RadioButton Free-Number-Date. X
-X 5- ClickOn RadioButton Choice. X
 6- Check Username in Ragister page.
-7-
+9- .
 */

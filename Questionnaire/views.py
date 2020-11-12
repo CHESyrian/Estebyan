@@ -5,13 +5,13 @@ from django.contrib.auth.decorators import login_required
 import json
 
 
-# Create your views here.
 @login_required(login_url='/authentication/login/')
 def Add_Questionnaire(request, usrnm):
     if request.user.username == usrnm:
         return render(request, 'Questionnaire/add_questionnaire.html')
     else:
         return HttpResponse('Not Permissions')
+
 
 @login_required(login_url='/authentication/login/')
 def Make_Questionnaire(request, usrnm):
@@ -42,3 +42,8 @@ def Make_Questionnaire(request, usrnm):
         return JsonResponse(Data)
     else:
         return HttpResponse('Not Permissions')
+
+
+@login_required(login_url='/authentication/login/')
+def Search(request, usrnm, keyword):
+    pass

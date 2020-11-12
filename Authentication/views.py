@@ -48,3 +48,7 @@ def Logging(request):
     else:
         print('User   :', user_auth)
         return render(request, 'authentication/login.html')
+
+
+def Username_Validate(request, usrnm):
+    pass
