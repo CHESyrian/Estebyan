@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, Http404
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-import json
+import os, json, csv, tablib
 
 
 @login_required(login_url='/authentication/login/')
@@ -47,3 +47,28 @@ def Make_Questionnaire(request, usrnm):
 @login_required(login_url='/authentication/login/')
 def Search(request, usrnm, keyword):
     pass
+
+
+@login_required(login_url='/authentication/login/')
+def Download_Data(request, usrnm, filename, filetype):
+    if request.user.username == usrnm:
+        file_path = os.path.join(settings.RESOURCES_ROOT, 'data/' + filename + '.json')
+        if os.path.exists(file_path):
+            with open(file_path, 'rb') as file:
+                if filetype == "csv":
+                    "Convert to CSV and Save as File then return it."
+                    pass
+                elif filetype == "excel":
+                    "Convert to Excel and Save as File then return it."
+                    pass
+                elif filetype == "json":
+                    json_file = file.read()
+                    response  = HttpResponse(json_file, content_type='application/json')
+                    response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+                    return response
+                else:
+                    raise Http404
+        else:
+            raise Http404
+    else:
+        return HttpResponse('Not Permissions')

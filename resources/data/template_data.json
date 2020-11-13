@@ -1,0 +1,25 @@
+{
+  "Questions" : [
+    "Q1",
+    "Q2",
+    "Q3"
+  ],
+  "Keywords": [
+    "Col1",
+    "Col2",
+    "Col3"
+  ],
+  "Answers" : {
+    "User1" : [
+      23,
+      130,
+      "re"
+    ],
+    "User2" : [
+      43,
+      190,
+      "rt"
+    ],
+    "Total" : 2,
+  }
+}

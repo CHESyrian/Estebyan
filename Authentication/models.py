@@ -8,5 +8,7 @@ class Profiles(models.Model):
     FirstName = models.CharField(max_length=32, null=True)
     LastName  = models.CharField(max_length=32, null=True)
     Birthdate = models.DateField(null=True)
+    Qu_Shares = models.IntegerField(max_length=7, default=0)
+    Questionnais = models.IntegerField(max_length=6, default=0)
     def __str__(self):
         return self.UserName.username

@@ -131,3 +131,8 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#Data
+RESOURCES_URL = '/resources/'
+
+RESOURCES_ROOT = os.path.join(BASE_DIR, 'resources')
