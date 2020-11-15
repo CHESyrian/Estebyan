@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse, Http404
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from .models import Questionnaires
 import os, json, csv, tablib
 
 
@@ -16,7 +18,15 @@ def Add_Questionnaire(request, usrnm):
 @login_required(login_url='/authentication/login/')
 def Make_Questionnaire(request, usrnm):
     if request.user.username == usrnm:
-        #Q1_CH1_Input, Q1_Input, AnswerType_1, Questions_Num, Keyword1_Input
+        user_instance   = User.objects.get(username=usrnm)
+        target_path     = settings.RESOURCES_ROOT.replace('\\', '/') + "/questionnaires/"
+        title           = request.POST.get('Title')
+        Ques_Model      = Questionnaires.objects.create(
+            UserName = user_instance,
+            Qs_Name  = f"{usrnm}_{title}.json",
+            Qs_Title = title,
+            Qs_Path  = target_path
+        )
         Questions_Count = int(request.POST.get('Questions_Num'))
         Data = {}
         for n in range(1, Questions_Count + 1):
@@ -33,15 +43,24 @@ def Make_Questionnaire(request, usrnm):
                 for m in range(1, Answers_Count + 1):
                     str_m = str(m)
                     Data[key]['Answers'].append(request.POST.get('Q%s_CH%s_Input'%(str_n, str_m)))
-        target_path = settings.BASE_DIR.replace('\\', '/') + "/resources/questionnaires/"
-        title = request.POST.get('Title')
         json_object = json.dumps(Data, indent=4)
         with open('%s%s_%s.json'%(target_path, request.user.username, title), 'w+') as file:
             file.write(json_object)
             file.close()
+        Ques_Model.save()
         return JsonResponse(Data)
     else:
         return HttpResponse('Not Permissions')
+
+
+@login_required(login_url='/authentication/login/')
+def Show_Questionnaire(request, usrnm, qs_title):
+    Questionnaire = Questionnaires.objects.get(Qs_Title=qs_title)
+    file_path = Questionnaire.Qs_Path + Questionnaire.Qs_Name
+    with open(file_path, 'rb') as file:
+        json_file = json.load(file)
+        file.close()
+    return JsonResponse(json_file)
 
 
 @login_required(login_url='/authentication/login/')

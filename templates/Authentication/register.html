@@ -4,6 +4,7 @@
     <label class="lbl pb-10 w-80 br-0 bb-2sb font-72 my-10 text-center">Estebyan | Questionnaire</label>
     <form class="Register-Form flex-column" action="{% url 'Signing_Up' %}" method="post">
       {% csrf_token %}
+      <p class="Message-Error field text-center font-18 cl-red w-60">{{ MsgError}}</p>
       <div class="field w-60 flex-row">
         <label class="lbl w-30" for="FirstName_Input">First Name</label>
         <input class="npt flex-grow" type="text" name="FirstName_Input" value="" required>
@@ -17,16 +18,16 @@
         <input class="npt flex-grow" type="date" name="Birthdate_Input" value="" required>
       </div>
       <div class="field w-60 flex-row">
-        <label class="lbl w-30" for="UserName_Input">User Name</label>
-        <input class="npt flex-grow" type="text" name="UserName_Input" value="" required>
+        <label class="lbl w-30" for="Reg_UserName_Input">User Name</label>
+        <input class="npt flex-grow" type="text" name="Reg_UserName_Input" value="" required>
       </div>
       <div class="field w-60 flex-row">
         <label class="lbl w-30" for="Email_Input">Email</label>
         <input class="npt flex-grow" type="email" name="Email_Input" value="" required>
       </div>
       <div class="field w-60 flex-row">
-        <label class="lbl w-30" for="Password_Input">Password</label>
-        <input class="npt flex-grow" type="password" name="Password_Input" value="" required>
+        <label class="lbl w-30" for="Reg_Password_Input">Password</label>
+        <input class="npt flex-grow" type="password" name="Reg_Password_Input" value="" required>
       </div>
       <div class="field w-60 flex-row">
         <label class="lbl w-30" for="ConfPassword_Input">Confirm Password</label>

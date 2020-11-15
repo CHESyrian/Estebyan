@@ -5,12 +5,12 @@
   <form class="Login-Form flex-column w-80" action="{% url 'Logging' %}" method="post">
     {% csrf_token %}
     <div class="field w-60 flex-row">
-      <label class="lbl w-30" for="UserName_Input">User Name</label>
-      <input class="npt flex-grow" type="text" name="UserName_Input">
+      <label class="lbl w-30" for="Log_UserName_Input">User Name</label>
+      <input class="npt flex-grow" type="text" name="Log_UserName_Input">
     </div>
     <div class="field w-60 flex-row">
-      <label class="lbl w-30" for="Password_Input">Password</label>
-      <input class="npt flex-grow" type="password" name="Password_Input">
+      <label class="lbl w-30" for="Log_Password_Input">Password</label>
+      <input class="npt flex-grow" type="password" name="Log_Password_Input">
     </div>
     <div class="field w-60 flex-row">
       <input class="btn npt-submit flex-grow" type="submit" name="Login_Input" value="Login">

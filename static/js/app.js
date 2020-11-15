@@ -91,10 +91,38 @@ $(document).ready(function() {
     var currentChoices = Number($('input[name="Q' + fieldNum + '_Choices_Num"]').val());
     $('input[name="Q' + fieldNum + '_Choices_Num"]').val(currentChoices - 1);
   })
-
+  // Username Validation.
+  $('input[name="Reg_UserName_Input"]').keyup(function() {
+    var username = this.value;
+    if (username.length == 0) {
+      $('input[name="Reg_UserName_Input"]').css('border-color', 'red');
+      return;
+    }
+    console.log(username);
+    var special_chars  = "<{[(,`\'\"\\-_; .:~!=+?@#$%^&*/)]}>";
+    console.log(special_chars + typeof special_chars);
+    for (letter in username) {
+      if (special_chars.includes(username[letter])) {
+        $('input[name="Reg_UserName_Input"]').css('border-color', 'red');
+        $('.Message-Error').html('Unvailable letter.Use letters and digits without spaces. Error : ' + '\"' + username[letter] + '\"');
+        return;
+      }
+    }
+    var url = window.origin + "/authentication/username_validate/" + username + "/";
+    $.getJSON(url, function(data) {
+      if (!data.status) {
+        $('input[name="Reg_UserName_Input"]').css('border-color', 'red');
+        $('.Message-Error').html(data.error);
+      }
+      else {
+        $('input[name="Reg_UserName_Input"]').css('border-color', 'lime');
+        $('.Message-Error').html('');
+      }
+    })
+  })
 })
 
 /*
-6- Check Username in Ragister page.
-9- .
+Tasks :
+
 */
