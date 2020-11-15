@@ -1,0 +1,42 @@
+{
+    "Question_1": {
+        "Keyword": "Name",
+        "Question": "What is your name?",
+        "Type": "text",
+        "Answers": []
+    },
+    "Question_2": {
+        "Keyword": "Age",
+        "Question": "How many old are you?",
+        "Type": "number",
+        "Answers": []
+    },
+    "Question_3": {
+        "Keyword": "Country",
+        "Question": "Where you come from?",
+        "Type": "select",
+        "Answers": [
+            "Asia",
+            "Europe",
+            "Africa",
+            "Southern America",
+            "Northern America",
+            "Okianosia"
+        ]
+    },
+    "Question_4": {
+        "Keyword": "Birthdate",
+        "Question": "When you born?",
+        "Type": "date",
+        "Answers": []
+    },
+    "Question_5": {
+        "Keyword": "Gender",
+        "Question": "what is your gender",
+        "Type": "select",
+        "Answers": [
+            "Male",
+            "Female"
+        ]
+    }
+}

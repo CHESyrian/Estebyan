@@ -72,6 +72,12 @@
 .w-60 {
   width: 60%;
 }
+.w-70 {
+  width: 70%;
+}
+.w-80 {
+  width: 80%;
+}
 .w-85 {
   width: 85%;
 }
@@ -149,6 +155,9 @@
 /*-------------------------- Border --------------------------*/
 .bsb {
   border: 1px solid black;
+}
+.bb-sb {
+  border-bottom: 2px solid black;
 }
 .bb-2sb {
   border-bottom: 2px solid black;

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load index %}
+{% block Content %}
+<div class="Content flex-column my-10">
+  <h1 class="field w-70 font-32 text-center my-10 bb-2sb">{{ Title }}</h1>
+  <form class="flex-column w-80 my-10" action="" method="post">
+    {% csrf_token %}
+    {% for question in Questions %}
+    <div class="Question-{{ forloop.counter }} field flex-column w-80 my-10">
+      <label class="lbl w-100 my-5">{{ question.Question }}</label>
+      {% if question.Type == 'select' %}
+      <select class="npt w-100 my-5" name="Answer-{{ forloop.counter }}">
+        {% for answer in question.Answers %}
+        <option class="" value="{{ answer }}">{{ answer }}</option>
+        {% endfor %}
+      </select>
+      {% else %}
+      <input class="npt w-100 my-5" type="{{ question.Type }}" name="Answer-{{ forloop.counter }}">
+      {% endif %}
+    </div>
+    {% endfor %}
+    <input class="npt npt-submit w-80 my-5" type="submit" name="Submit" value="Submit">
+  </form>
+</div>
+{% endblock %}

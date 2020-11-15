@@ -55,12 +55,19 @@ def Make_Questionnaire(request, usrnm):
 
 @login_required(login_url='/authentication/login/')
 def Show_Questionnaire(request, usrnm, qs_title):
-    Questionnaire = Questionnaires.objects.get(Qs_Title=qs_title)
-    file_path = Questionnaire.Qs_Path + Questionnaire.Qs_Name
+    file_path = settings.RESOURCES_ROOT.replace('\\', '/') + f"/questionnaires/{usrnm}_{qs_title}.json"
     with open(file_path, 'rb') as file:
         json_file = json.load(file)
         file.close()
-    return JsonResponse(json_file)
+    Context = {
+        "Title" : qs_title,
+        "Questions" : json_file.values()
+    }
+    return render(request, 'Questionnaire/show_questionnaire.html', Context)
+    #if usrnm != request.user.username:
+    #
+    #else:
+    #    return HttpResponse('You can\'t share in your questionnaire')
 
 
 @login_required(login_url='/authentication/login/')
