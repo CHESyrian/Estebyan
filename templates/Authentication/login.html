@@ -2,7 +2,7 @@
 {% block Content %}
 <div class="Content flex-column">
   <label class="lbl pb-10 w-80 br-0 bb-2sb font-72 my-10 text-center">Estebyan | Questionnaire</label>
-  <form class="Login-Form flex-column w-80" action="{% url 'Logging' %}" method="post">
+  <form class="Login-Form flex-column w-80 my-10" action="{% url 'Logging' %}" method="post">
     {% csrf_token %}
     <div class="field w-60 flex-row">
       <label class="lbl w-30" for="Log_UserName_Input">User Name</label>

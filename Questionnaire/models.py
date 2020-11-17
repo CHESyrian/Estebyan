@@ -8,5 +8,23 @@ class Questionnaires(models.Model):
     Qs_Name  = models.CharField(max_length=160, null=True)
     Qs_Path  = models.CharField(max_length=320, null=True)
     Qs_Date  = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __str__(self):
+        return self.UserName.username
+
+
+class Qs_Shares(models.Model):
+    Questionnaire = models.ForeignKey(Questionnaires, on_delete=models.CASCADE, null=True)
+    Shares_Num    = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.UserName.username
+
+
+class Shares(models.Model):
+    UserName      = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    Questionnaire = models.ForeignKey(Questionnaires, on_delete=models.CASCADE, null=True)
+    Share_Date    = models.DateTimeField(auto_now_add=False, auto_now=True)
+
     def __str__(self):
         return self.UserName.username

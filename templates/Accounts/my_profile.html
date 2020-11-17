@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
 {% block Content %}
-  <div class="Content flex-column">
+  <div class="Content flex-column bsb">
     <!-- <a href="{% url 'Add_Questionnaire' request.user.username %}">Add Questionnaire</a>
     <a href="{% url 'Download_Data' request.user.username 'hh' 'json' %}" download>Download</a> -->
-    <div class="Profile-Header flex-row w-90">
-      <div class="Profile-Infos flex-column w-50">
-        <p class="w-80">{{ Profile.FirstName }} {{ Profile.LastName }}</p>
+    <div class="Profile-Header flex-row w-90 my-10 bsb">
+      <div class="Profile-Infos flex-column w-50 p-10 m-10 br-5 bsb">
+        <p class="w-80 font-24">{{ Profile.FirstName }} {{ Profile.LastName }}</p>
       </div>
-      <div class="Profile-Activity flex-column w-50">
-        <p>Shares : 130</p>
-        <p>Questionnaires : 15</p>
+      <div class="Profile-Activity flex-column w-50 p-10 m-10 br-5 bsb">
+
       </div>
     </div>
     <div class="Questionnaires">

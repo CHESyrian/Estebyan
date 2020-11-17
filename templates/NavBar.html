@@ -5,12 +5,12 @@
   <a class="Nav-Logo cl-white" href="{% url 'Home' %}">Estebyan</a>
   <div class="Nav-List res-flex-col">
     {% if  request.user.is_authenticated %}
-    <a class="Nav-Link hover-link" href="{% url 'MyProfile' request.user.username %}">Account</a>
+    <a class="Nav-Link hover-link hover-bb2sw" href="{% url 'MyProfile' request.user.username %}">Account</a>
     {% else %}
-    <a class="Nav-Link hover-link" href="{% url 'Login' %}">Login</a>
+    <a class="Nav-Link hover-link hover-bb2sw" href="{% url 'Login' %}">Login</a>
     {% endif %}
-    <a class="Nav-Link hover-link" href="#">Docs</a>
-    <a class="Nav-Link hover-link" href="#">Suppurt</a>
+    <a class="Nav-Link hover-link hover-bb2sw" href="#">Docs</a>
+    <a class="Nav-Link hover-link hover-bb2sw" href="#">Suppurt</a>
   </div>
   <form class="Nav-Search">
     <input class="Search-Input" type="text" name="SearchInput" placeholder="Search">
