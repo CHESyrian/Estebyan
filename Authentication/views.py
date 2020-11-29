@@ -3,7 +3,7 @@ from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from Questionnaire.models import Questionnaires
-from .models import Profiles
+from Accounts.models import Profiles
 
 # Create your views here.
 def Register(request):
