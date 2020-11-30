@@ -1,4 +1,7 @@
 /*-------------------------- Elements --------------------------*/
+.wrap {
+  word-break: break-all;
+}
 .lbl {
   border-radius: 8px;
   padding: 4px 8px;
@@ -50,6 +53,9 @@
 .not-link {
   text-decoration: none;
 }
+.hide-overflow {
+  overflow: hidden;
+}
 /*-------------------------- Width --------------------------*/
 .w-10 {
   width: 10%;
@@ -65,6 +71,9 @@
 }
 .w-30 {
   width: 30%;
+}
+.w-40 {
+  width: 40%;
 }
 .w-50 {
   width: 50%;
@@ -87,9 +96,48 @@
 .w-100 {
   width: 100%;
 }
+.w-200p {
+  width: 200px;
+}
+.w-300p {
+  width: 300px;
+}
 /*-------------------------- Height - Line Height --------------------------*/
-.h-60 {
+.h-5 {
+  height: 5%;
+}
+.h-10 {
+  height: 10%;
+}
+.h-80 {
+  height: 80%;
+}
+.h-90 {
+  height: 90%;
+}
+.h-100 {
+  height: 100%;
+}
+.h-60p {
   height: 60px;
+}
+.fh-400 {
+  height: 400px;
+  min-height: 400px;
+  max-height: 400px;
+}
+.fh-500 {
+  height: 500px;
+  min-height: 500px;
+  max-height: 500px;
+}
+.fh-600 {
+  height: 600px;
+  min-height: 600px;
+  max-height: 600px;
+}
+.mxh {
+  max-height: 300px;
 }
 .h-lh-45 {
   height: 45px;
@@ -102,6 +150,24 @@
 /*-------------------------- Background Colors --------------------------*/
 .bg-red {
   background-color: red;
+}
+.bg-w3 {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.bg-w6 {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.bg-w9 {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.bg-b3 {
+  background-color: rgba(50, 50, 50, 0.3);
+}
+.bg-b6 {
+  background-color: rgba(50, 50, 50, 0.6);
+}
+.bg-b9 {
+  background-color: rgba(50, 50, 50, 0.9);
 }
 /*-------------------------- Color --------------------------*/
 .cl-cyan {
@@ -118,6 +184,9 @@
 }
 .cl-red {
   color: red;
+}
+.cl-ccc {
+  color: #ccc;
 }
 /*-------------------------- Pseudo Class --------------------------*/
 .hover-aaa:hover {
@@ -152,6 +221,9 @@
 .font-32 {
   font-size: 32px;
 }
+.font-42 {
+  font-size: 42px;
+}
 .font-72 {
   font-size: 72px;
 }
@@ -185,7 +257,34 @@
 .br-8 {
   border-radius: 8px;
 }
+.brt-5 {
+  border-radius: 5px 5px 0 0;
+}
+.brt-8 {
+  border-radius: 8px 8px 0 0;
+}
+.brr-5 {
+  border-radius: 0 5px 5px 0;
+}
+.brr-8 {
+  border-radius: 0 8px 8px 0;
+}
+.brb-5 {
+  border-radius: 0 0 5px 5px;
+}
+.brb-8 {
+  border-radius: 0 0 8px 8px;
+}
+.brl-5 {
+  border-radius: 5px 0 0 5px;
+}
+.brl-8 {
+  border-radius: 8px 0 0 8px;
+}
 /*-------------------------- Margin --------------------------*/
+.m-5 {
+  margin: 5px;
+}
 .m-10 {
   margin: 10px;
 }
@@ -214,11 +313,29 @@
   margin-left: 10px;
 }
 /*-------------------------- Padding --------------------------*/
+.p-5 {
+  padding: 5px;
+}
 .p-10 {
   padding: 10px;
 }
+.pl-10 {
+  padding-left: 10px;
+}
 .pb-10 {
   padding-bottom: 10px;
+}
+.px-5 {
+  padding: 0 5px;
+}
+.px-10 {
+  padding: 0 10px;
+}
+.py-5 {
+  padding: 5px 0;
+}
+.py-10 {
+  padding: 10px 0;
 }
 /*-------------------------- Cursor --------------------------*/
 .pointer {
@@ -245,10 +362,17 @@
 .flex-grow {
   flex-grow: 1;
 }
+.center {
+  align-items: center;
+  align-content: center;
+}
 .justify-center {
   align-items: center;
   align-content: center;
   justify-content: center;
+}
+.space-between {
+  justify-content: space-between;
 }
 /*-------------------------- Direction --------------------------*/
 .rtl {

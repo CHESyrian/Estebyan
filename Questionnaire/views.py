@@ -3,6 +3,7 @@ from django.http import JsonResponse, HttpResponse, Http404
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from Accounts.models import Profiles
 from .models import Questionnaires
 import os, json, csv, tablib
 
@@ -19,6 +20,7 @@ def Add_Questionnaire(request, usrnm):
 def Make_Questionnaire(request, usrnm):
     if request.user.username == usrnm:
         user_instance   = User.objects.get(username=usrnm)
+        ques_num        = Profiles.objects.get(UserName=user_instance.id).Questionnaires
         target_path     = settings.RESOURCES_ROOT.replace('\\', '/') + "/questionnaires/"
         title           = request.POST.get('Title')
         Ques_Model      = Questionnaires.objects.create(
@@ -47,6 +49,7 @@ def Make_Questionnaire(request, usrnm):
         with open('%s%s_%s.json'%(target_path, request.user.username, title), 'w+') as file:
             file.write(json_object)
             file.close()
+        Profiles.objects.filter(UserName=user_instance.id).update(Questionnaires=ques_num+1)
         Ques_Model.save()
         return JsonResponse(Data)
     else:

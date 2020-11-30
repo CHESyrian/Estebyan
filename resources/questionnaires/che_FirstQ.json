@@ -1,0 +1,23 @@
+{
+    "Question_1": {
+        "Keyword": "q1",
+        "Question": "Q1",
+        "Type": "text",
+        "Answers": []
+    },
+    "Question_2": {
+        "Keyword": "q2",
+        "Question": "Q2",
+        "Type": "number",
+        "Answers": []
+    },
+    "Question_3": {
+        "Keyword": "q3",
+        "Question": "Q3",
+        "Type": "select",
+        "Answers": [
+            "c1",
+            "c2"
+        ]
+    }
+}
