@@ -4,8 +4,12 @@
   <form id="Q-Form" class="Q-Form flex-column my-5 w-85" action="{% url 'Make_Questionnaire' request.user.username %}" method="post">
     {% csrf_token %}
     <div class="field flex-row w-90">
-      <label class="lbl font-24 w-40 mr-50" for="Title">Questionnaire Title</label>
+      <label class="lbl font-24 w-20 mr-50" for="Title">Questionnaire Title</label>
       <input class="npt font-24 flex-grow" type="text" name="Title" required>
+    </div>
+    <div class="field flex-row w-90">
+      <label class="lbl font-24 w-20 mr-50" for="Description">Description</label>
+      <textarea class="txr font-24 flex-grow" type="text" name="Description" required></textarea>
     </div>
     <div class="QField-1 field flex-column w-90">
       <div class="field flex-row w-90">

@@ -23,10 +23,12 @@ def Make_Questionnaire(request, usrnm):
         ques_num        = Profiles.objects.get(UserName=user_instance.id).Questionnaires
         target_path     = settings.RESOURCES_ROOT.replace('\\', '/') + "/questionnaires/"
         title           = request.POST.get('Title')
+        describtion     = request.POST.get('Description')
         Ques_Model      = Questionnaires.objects.create(
             UserName = user_instance,
             Qs_Name  = f"{usrnm}_{title}.json",
             Qs_Title = title,
+            Qs_Dcrb  = describtion,
             Qs_Path  = target_path
         )
         Questions_Count = int(request.POST.get('Questions_Num'))

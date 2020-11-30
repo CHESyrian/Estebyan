@@ -1,10 +1,8 @@
 /*-------------------------- Elements --------------------------*/
-.wrap {
-  word-break: break-all;
-}
 .lbl {
   border-radius: 8px;
   padding: 4px 8px;
+  font-family: serif;
 }
 .lbl-add {
   background-color: #888;
@@ -13,9 +11,10 @@
   text-align: center;
 }
 .txr {
-  padding: 4px 8px;
+  padding: 4px 6px;
   border-radius: 8px;
   border: none;
+  font-family: serif;
 }
 .txr:focus {
   border: 2px solid lime;
@@ -25,11 +24,13 @@
   padding: 4px 10px;
   border: none;
   cursor: pointer;
+  font-family: serif;
 }
 .npt {
   border: 1px solid #aaa;
   border-radius: 6px;
   padding: 4px 6px;
+  font-family: serif;
 }
 .npt:focus {
   border: 2px solid rgb(20, 200, 20);
@@ -55,6 +56,9 @@
 }
 .hide-overflow {
   overflow: hidden;
+}
+.wrap {
+  word-break: break-all;
 }
 /*-------------------------- Width --------------------------*/
 .w-10 {
