@@ -1,4 +1,7 @@
 <div class="SideBar">
+  {% if request.user.is_authenticated %}
+  <a href="{% url 'Add_Questionnaire' request.user.username %}" class="not-link btn npt-submit br-5 m-10 text-center">+Add Questionnaire</a>
+  {% endif %}
   <h3 class="SideBar-Title">Categories</h3>
   <div class="SideBar-List">
     <a class="SideBar-Link hover-shadow hover-link" href="#">Economics (1290)</a>

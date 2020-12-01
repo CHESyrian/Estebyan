@@ -125,6 +125,11 @@
 .h-60p {
   height: 60px;
 }
+.fh-300 {
+  height: 300px;
+  min-height: 300px;
+  max-height: 300px;
+}
 .fh-400 {
   height: 400px;
   min-height: 400px;
@@ -304,6 +309,9 @@
 .my-15 {
   margin: 15px auto;
 }
+.mx-5 {
+  margin: auto 5px;
+}
 .mx-10 {
   margin: auto 10px;
 }
@@ -359,9 +367,17 @@
   display: flex;
   flex-flow: column nowrap;
 }
+.flex-column-wrap {
+  display: flex;
+  flex-flow: column wrap;
+}
 .flex-row {
   display: flex;
   flex-flow: row nowrap;
+}
+.flex-row-wrap {
+  display: flex;
+  flex-flow: row wrap;
 }
 .flex-grow {
   flex-grow: 1;
@@ -381,5 +397,17 @@
 /*-------------------------- Direction --------------------------*/
 .rtl {
   direction: rtl;
+}
+/*------------------------- Icons -------------------------*/
+.icon-link {
+  cursor: pointer;
+}
+.icon-10 {
+  width: 10px;
+  height: 10px;
+}
+.icon-30 {
+  width: 30px;
+  height: 30px;
 }
 /*------------------------- Effects -------------------------*/

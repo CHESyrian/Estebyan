@@ -21,36 +21,51 @@ def Make_Questionnaire(request, usrnm):
     if request.user.username == usrnm:
         user_instance   = User.objects.get(username=usrnm)
         ques_num        = Profiles.objects.get(UserName=user_instance.id).Questionnaires
-        target_path     = settings.RESOURCES_ROOT.replace('\\', '/') + "/questionnaires/"
+        quest_path      = settings.RESOURCES_ROOT.replace('\\', '/') + "/questionnaires/"
+        data_path       = settings.RESOURCES_ROOT.replace('\\', '/') + "/data/"
         title           = request.POST.get('Title')
         describtion     = request.POST.get('Description')
         Ques_Model      = Questionnaires.objects.create(
             UserName = user_instance,
-            Qs_Name  = f"{usrnm}_{title}.json",
+            Qs_Name  = f"{usrnm}_{title}",
             Qs_Title = title,
             Qs_Dcrb  = describtion,
-            Qs_Path  = target_path
+            Qs_Path  = quest_path
         )
         Questions_Count = int(request.POST.get('Questions_Num'))
-        Data = {}
+        Ques = {}
         for n in range(1, Questions_Count + 1):
             str_n = str(n)
             key = "Question_%s"%str_n
-            Data[key] = {
+            Ques[key] = {
             "Keyword" : request.POST.get('Keyword%s_Input'%str_n),
             "Question" : request.POST.get('Q%s_Input'%str_n),
             "Type" : request.POST.get('AnswerType_%s'%str_n),
             "Answers" : []
             }
-            if Data[key]['Type'] == "select":
+            if Ques[key]['Type'] == "select":
                 Answers_Count = int(request.POST.get('Q%s_Choices_Num'%str_n))
                 for m in range(1, Answers_Count + 1):
                     str_m = str(m)
-                    Data[key]['Answers'].append(request.POST.get('Q%s_CH%s_Input'%(str_n, str_m)))
-        json_object = json.dumps(Data, indent=4)
-        with open('%s%s_%s.json'%(target_path, request.user.username, title), 'w+') as file:
-            file.write(json_object)
+                    Ques[key]['Answers'].append(request.POST.get('Q%s_CH%s_Input'%(str_n, str_m)))
+        ques_json = json.dumps(Ques, indent=4)
+        with open('%s%s_%s.json'%(quest_path, request.user.username, title), 'w+') as file:
+            file.write(ques_json)
             file.close()
+        Data = {
+            'Questions' : [],
+            'Keywords'  : [],
+            'Answers'   : {}
+        }
+        for n in range(1, Questions_Count + 1):
+            str_n = str(n)
+            Data['Questions'].append(request.POST.get('Q%s_Input'%str_n))
+            Data['Keywords'].append(request.POST.get('Keyword%s_Input'%str_n))
+        Data['Answers']['Total'] = 0
+        data_json = json.dumps(Data, indent=4)
+        with open('%s%s_%s.json'%(data_path, request.user.username, title), 'w+') as data_file:
+            data_file.write(data_json)
+            data_file.close()
         Profiles.objects.filter(UserName=user_instance.id).update(Questionnaires=ques_num+1)
         Ques_Model.save()
         return JsonResponse(Data)
@@ -87,10 +102,10 @@ def Download_Data(request, usrnm, filename, filetype):
         if os.path.exists(file_path):
             with open(file_path, 'rb') as file:
                 if filetype == "csv":
-                    "Convert to CSV and Save as File then return it."
+                    print("Convert to CSV and Save as File then return it.")
                     pass
                 elif filetype == "excel":
-                    "Convert to Excel and Save as File then return it."
+                    print("Convert to Excel and Save as File then return it.")
                     pass
                 elif filetype == "json":
                     json_file = file.read()
