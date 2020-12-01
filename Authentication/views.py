@@ -10,7 +10,7 @@ def Register(request):
     Context = {
         "MsgError" : ""
     }
-    return render(request, 'authentication/register.html', Context)
+    return render(request, 'Authentication/register.html', Context)
 
 def Signing_Up(request):
     New_User = User.objects.create_user(
@@ -32,14 +32,14 @@ def Signing_Up(request):
         LastName  = request.POST.get('LastName_Input')
     )
     New_Profile.save()
-    return render(request, 'authentication/login.html')
+    return render(request, 'Authentication/login.html')
 
 
 def Login(request):
     if request.user.is_authenticated:
         return HttpResponse('Logged In')
     else:
-        return render(request, 'authentication/login.html')
+        return render(request, 'Authentication/login.html')
 
 
 def Logging(request):
@@ -51,7 +51,7 @@ def Logging(request):
         return HttpResponseRedirect(reverse('MyProfile', args=[request.user.username]))
     else:
         print('User   :', user_auth)
-        return render(request, 'authentication/login.html')
+        return render(request, 'Authentication/login.html')
 
 
 def Username_Validate(request, usrnm):

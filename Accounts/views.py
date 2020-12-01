@@ -6,7 +6,7 @@ from Questionnaire.models import Questionnaires
 from .models import Profiles
 
 
-@login_required(login_url='/authentication/login/')
+@login_required(login_url='/Authentication/login/')
 def MyProfile(request, usrnm):
     if usrnm == request.user.username:
         user_id = User.objects.get(username=usrnm).id
