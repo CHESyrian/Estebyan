@@ -1,10 +1,10 @@
-from django.shortcuts import render
-from django.http import JsonResponse, HttpResponse, Http404
+from django.shortcuts import render, reverse
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, Http404
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from Accounts.models import Profiles
-from .models import Questionnaires
+from .models import Questionnaires, Qs_Shares, Shares
 import os, json, csv, tablib
 
 
@@ -68,7 +68,12 @@ def Make_Questionnaire(request, usrnm):
             data_file.close()
         Profiles.objects.filter(UserName=user_instance.id).update(Questionnaires=ques_num+1)
         Ques_Model.save()
-        return JsonResponse(Data)
+        Qs_Sh = Questionnaires.objects.get(Qs_Name=f"{usrnm}_{title}")
+        Share = Qs_Shares.objects.create(
+            Questionnaire = Qs_Sh,
+        )
+        Share.save()
+        return HttpResponseRedirect(reverse('MyProfile', args=[usrnm]))
     else:
         return HttpResponse('Not Permissions')
 
@@ -80,19 +85,32 @@ def Show_Questionnaire(request, usrnm, qs_title):
         json_file = json.load(file)
         file.close()
     Context = {
-        "Title" : qs_title,
+        "Author"    : usrnm,
+        "Title"     : qs_title,
         "Questions" : json_file.values()
     }
     return render(request, 'Questionnaire/show_questionnaire.html', Context)
-    #if usrnm != request.user.username:
-    #
-    #else:
-    #    return HttpResponse('You can\'t share in your questionnaire')
 
 
 @login_required(login_url='/authentication/login/')
-def Search(request, usrnm, keyword):
-    pass
+def Save_Answers(request, usrnm, qs_title):
+    auth_id       = User.objects.get(username=usrnm).id
+    user_instance = User.objects.get(username=request.user.username)
+    ques_instance = Questionnaires.objects.get(UserName=auth_id)
+    check_share   = Shares.objects.filter(UserName=user_instance.id, Questionnaire=ques_instance.id).exists()
+    if not check_share:
+        shares_num    = Qs_Shares.objects.get(Questionnaire=ques_instance.id).Shares_Num + 1
+        prof_shares   = Profiles.objects.get(UserName=user_instance.id).Qs_Shares + 1
+        shares        = Shares.objects.create(
+            UserName      = user_instance,
+            Questionnaire = ques_instance
+        )
+        Qs_Shares.objects.filter(Questionnaire=ques_instance.id).update(Shares_Num=shares_num)
+        Profiles.objects.filter(UserName=user_instance.id).update(Qs_Shares=prof_shares)
+        shares.save()
+        return HttpResponse('Done')
+    else:
+        return HttpResponse('Sorry,You shared in this questionnaire.')
 
 
 @login_required(login_url='/authentication/login/')
@@ -103,10 +121,10 @@ def Download_Data(request, usrnm, filename, filetype):
             with open(file_path, 'rb') as file:
                 if filetype == "csv":
                     print("Convert to CSV and Save as File then return it.")
-                    pass
+                    raise Http404
                 elif filetype == "excel":
                     print("Convert to Excel and Save as File then return it.")
-                    pass
+                    raise Http404
                 elif filetype == "json":
                     json_file = file.read()
                     response  = HttpResponse(json_file, content_type='application/json')
@@ -118,3 +136,8 @@ def Download_Data(request, usrnm, filename, filetype):
             raise Http404
     else:
         return HttpResponse('Not Permissions')
+
+
+@login_required(login_url='/authentication/login/')
+def Search(request, usrnm, keyword):
+    pass

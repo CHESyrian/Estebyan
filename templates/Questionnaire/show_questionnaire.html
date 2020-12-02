@@ -3,7 +3,7 @@
 {% block Content %}
 <div class="Content flex-column my-10">
   <h1 class="field w-70 font-32 text-center my-10 bb-2sb">{{ Title }}</h1>
-  <form class="flex-column w-80 my-10" action="" method="post">
+  <form class="flex-column w-80 my-10" action="{% url 'Save_Answers' Author Title %}" method="post">
     {% csrf_token %}
     {% for question in Questions %}
     <div class="Question-{{ forloop.counter }} field flex-column w-80 my-10">
