@@ -26,5 +26,10 @@ def Profile(request, usrnm):
 
 
 @login_required(login_url='/Authentication/login/')
-def Contact_Us(request, usrnm):
+def Contact(request, usrnm):
+    return HttpResponse('Contacted :)')
+
+
+@login_required(login_url='/Authentication/login/')
+def Report(request, usrnm):
     return HttpResponse('Contacted :)')
