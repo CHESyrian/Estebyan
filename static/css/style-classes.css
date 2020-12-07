@@ -252,7 +252,9 @@
 .bb-2sb {
   border-bottom: 2px solid black;
 }
-
+.bb-sw {
+  border-bottom: 1px solid white;
+}
 /*-------------------------- Border Radius --------------------------*/
 .br-0 {
   border-radius: 0;

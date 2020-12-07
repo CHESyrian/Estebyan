@@ -5,3 +5,18 @@
 @media (max-width: 840px) {
 
 }
+
+@media (max-width: 438px) {
+  .res-flex-column {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .NavBar {
+    height: auto;
+  }
+  .Nav-Link,
+  .Nav-List {
+    width: 100%;
+    margin: 0;
+  }
+}

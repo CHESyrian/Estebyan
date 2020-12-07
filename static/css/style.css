@@ -15,8 +15,6 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
   height: 60px;
   line-height: 60px;
   background-color: rgb(120, 220, 120);
@@ -38,8 +36,6 @@ body {
 }
 .Nav-List {
   flex-grow: 1;
-  display: flex;
-  flex-flow: row nowrap;
   margin: 0 8px;
 }
 .Nav-Link {
@@ -58,7 +54,6 @@ body {
   background-color: transparent;
   color: #fff;
   border: none;
-  border-bottom: 1px solid #fff;
   padding-bottom: 6px;
   width: 300px;
   outline: none;
