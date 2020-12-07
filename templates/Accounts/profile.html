@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block Content %}
+  <div class="Content flex-column my-10">
+    <div class="Profile-Header flex-row space-between w-90 my-10">
+      <div class="Profile-Infos flex-column w-40 p-10 br-8 bg-b3">
+        <a href="{% usr 'Profile' Profile.UserName.username %}" class="cl-white font-42 not-link">{{ Profile.FirstName }} {{ Profile.LastName }}</a>
+      </div>
+      <div class="Profile-Activity flex-column w-40 p-10 br-8 bg-b3">
+        <h3 class="cl-white">Questionnaires : {{ Profile.Questionnaires }}</h3>
+        <h3 class="cl-white">Shares : {{ Profile.Qs_Shares }}</h3>
+      </div>
+    </div>
+    <h1 class="font-32 bb-sb w-90 my-10">Questionnaires</h1>
+    <div class="Questionnaires flex-row-wrap justify-center w-90 my-10">
+      {% for Q in Ques %}
+        <div class="flex-column fh-300 w-30 bg-b3 br-8 m-10">
+          <div class="flex-row space-between bg-b3 brt-8 p-5">
+            <a href="{% url 'Show_Questionnaire' Q.UserName.username Q.Qs_Title %}" class="font-24 not-link cl-white">{{ Q.Qs_Title }}</a>
+            <div class="flex-row">
+              <a href="{% url 'Download_Data' Profile.UserName.username Q.Qs_Name 'csv' %}" download><img class="Download_CSV icon-30 icon-link mx-5" src="{% static 'images/csv_download.png' %}" alt="CSV" title="Download CSV"></s>
+              <a href="{% url 'Download_Data' Profile.UserName.username Q.Qs_Name 'json' %}" download><img class="Download_JSON icon-30 icon-link mx-5" src="{% static 'images/json_download.png' %}" alt="JSON" title="Download JSON"></a>
+              <a href="{% url 'Download_Data' Profile.UserName.username Q.Qs_Name 'excel' %}" download><img class="Download_EXCEL icon-30 icon-link mx-5" src="{% static 'images/excel.png' %}" alt="EXCEL" title="Download Excel"></a>
+            </div>
+          </div>
+          <div class="flex-grow hide-overflow p-5">
+            <p class="cl-white wrap">{{ Q.Qs_Dcrb}}</p>
+          </div>
+          <div class="px-5">
+            <p class="cl-white">{{ Q.Qs_Date }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

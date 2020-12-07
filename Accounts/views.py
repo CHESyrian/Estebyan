@@ -7,8 +7,9 @@ from .models import Profiles
 
 
 @login_required(login_url='/Authentication/login/')
-def MyProfile(request, usrnm):
-    if usrnm == request.user.username:
+def Profile(request, usrnm):
+    check_user = User.objects.filter(username=usrnm).exists()
+    if check_user:
         user_id = User.objects.get(username=usrnm).id
         Ques    = Questionnaires.objects.filter(UserName=user_id)
         Profile = Profiles.objects.get(UserName=user_id)
@@ -16,6 +17,14 @@ def MyProfile(request, usrnm):
             'Ques'    : Ques,
             'Profile' : Profile
         }
-        return render(request, 'Accounts/my_profile.html', Context)
+        if usrnm == request.user.username:
+            return render(request, 'Accounts/my_profile.html', Context)
+        else:
+            return render(request, 'Accounts/profile.html', Context)
     else:
-        return HttpResponse('Permission Denied')
+        return HttpResponse('User isn\'t exists:(')
+
+
+@login_required(login_url='/Authentication/login/')
+def Contact_Us(request, usrnm):
+    return HttpResponse('Contacted :)')

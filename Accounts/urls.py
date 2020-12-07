@@ -4,6 +4,6 @@ from django.urls import path, include
 from .views import *
 
 urlpatterns = [
-    path('my_profile/<str:usrnm>/', MyProfile, name='MyProfile')
+    path('profile/<str:usrnm>/', Profile, name='Profile')
  ]\
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
