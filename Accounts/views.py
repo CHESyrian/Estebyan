@@ -23,13 +23,3 @@ def Profile(request, usrnm):
             return render(request, 'Accounts/profile.html', Context)
     else:
         return HttpResponse('User isn\'t exists:(')
-
-
-@login_required(login_url='/Authentication/login/')
-def Contact(request, usrnm):
-    return HttpResponse('Contacted :)')
-
-
-@login_required(login_url='/Authentication/login/')
-def Report(request, usrnm):
-    return HttpResponse('Contacted :)')

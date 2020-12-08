@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Authentication',
     'Accounts',
-    'Questionnaire'
+    'Questionnaire',
+    'Support'
 ]
 
 MIDDLEWARE = [
