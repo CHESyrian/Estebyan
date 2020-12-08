@@ -2,17 +2,16 @@
 
 }
 
-@media (max-width: 840px) {
-
-}
-
-@media (max-width: 438px) {
+@media (max-width: 712px) {
   .res-flex-column {
     display: flex;
     flex-flow: column nowrap;
   }
   .NavBar {
     height: auto;
+  }
+  .Nav-Search {
+    width: 100%;
   }
   .Nav-Link,
   .Nav-List {

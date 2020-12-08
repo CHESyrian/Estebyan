@@ -1,8 +1,8 @@
 <div class="NavBar flex-row res-flex-column">
-  <div class="Sandwish">
-    <i class="fas fa-bars"></i>
+  <div class="flex-row">
+    <div class="Sandwish"> <i class="fas fa-bars"></i> </div>
+    <a class="Nav-Logo cl-white text-center" href="{% url 'Home' %}">Estebyan</a>
   </div>
-  <a class="Nav-Logo cl-white text-center" href="{% url 'Home' %}">Estebyan</a>
   <div class="Nav-List flex-row res-flex-column">
     {% if  request.user.is_authenticated %}
     <a class="Nav-Link hover-link hover-bb2sw" href="{% url 'Profile' request.user.username %}">Account</a>
@@ -12,8 +12,8 @@
     <a class="Nav-Link hover-link hover-bb2sw" href="#">Docs</a>
     <a class="Nav-Link hover-link hover-bb2sw" href="#">Support</a>
   </div>
-  <form class="Nav-Search res-flex-column">
-    <input class="Search-Input bb-sw" type="text" name="SearchInput" placeholder="Search">
-    <i class="fas fa-search font-28 cl-white mx-10 icon-link Search-Icon"></i>
+  <form class="Nav-Search flex-row p-5">
+    <div class="flex-grow"> <input class="Search-Input bb-sw w-100" type="text" name="SearchInput" placeholder="Search"></div>
+    <div class="Search-Icon"> <i class="fas fa-search font-28 cl-white icon-link text-center"> </i> </div>
   </form>
 </div>
