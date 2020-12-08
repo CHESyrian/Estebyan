@@ -115,27 +115,24 @@ def Save_Answers(request, usrnm, qs_title):
 
 @login_required(login_url='/authentication/login/')
 def Download_Data(request, usrnm, filename, filetype):
-    if request.user.username == usrnm:
-        file_path = os.path.join(settings.RESOURCES_ROOT, 'data/' + filename + '.json')
-        if os.path.exists(file_path):
-            with open(file_path, 'rb') as file:
-                if filetype == "csv":
-                    print("Convert to CSV and Save as File then return it.")
-                    raise Http404
-                elif filetype == "excel":
-                    print("Convert to Excel and Save as File then return it.")
-                    raise Http404
-                elif filetype == "json":
-                    json_file = file.read()
-                    response  = HttpResponse(json_file, content_type='application/json')
-                    response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
-                    return response
-                else:
-                    raise Http404
-        else:
-            raise Http404
+    file_path = os.path.join(settings.RESOURCES_ROOT, 'data/' + filename + '.json')
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as file:
+            if filetype == "csv":
+                print("Convert to CSV and Save as File then return it.")
+                raise Http404
+            elif filetype == "excel":
+                print("Convert to Excel and Save as File then return it.")
+                raise Http404
+            elif filetype == "json":
+                json_file = file.read()
+                response  = HttpResponse(json_file, content_type='application/json')
+                response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+                return response
+            else:
+                raise Http404
     else:
-        return HttpResponse('Not Permissions')
+        raise Http404
 
 
 @login_required(login_url='/authentication/login/')

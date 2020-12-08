@@ -48,7 +48,7 @@ def Logging(request):
     user_auth = authenticate(username=Username, password=Password)
     if user_auth is not None:
         login(request, user_auth)
-        return HttpResponseRedirect(reverse('MyProfile', args=[request.user.username]))
+        return HttpResponseRedirect(reverse('Profile', args=[Username]))
     else:
         print('User   :', user_auth)
         return render(request, 'Authentication/login.html')

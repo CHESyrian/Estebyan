@@ -4,7 +4,7 @@
   <div class="Content flex-column my-10">
     <div class="Profile-Header flex-row space-between w-90 my-10">
       <div class="Profile-Infos flex-column w-40 p-10 br-8 bg-b3">
-        <a href="{% usr 'Profile' Profile.UserName.username %}" class="cl-white font-42 not-link">{{ Profile.FirstName }} {{ Profile.LastName }}</a>
+        <a href="{% url 'Profile' Profile.UserName.username %}" class="cl-white font-42 not-link">{{ Profile.FirstName }} {{ Profile.LastName }}</a>
       </div>
       <div class="Profile-Activity flex-column w-40 p-10 br-8 bg-b3">
         <h3 class="cl-white">Questionnaires : {{ Profile.Questionnaires }}</h3>
