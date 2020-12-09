@@ -125,6 +125,11 @@
 .h-60p {
   height: 60px;
 }
+.fh-60 {
+  height: 60px;
+  min-height: 60px;
+  max-height: 60px;
+}
 .fh-300 {
   height: 300px;
   min-height: 300px;
