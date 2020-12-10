@@ -1,39 +1,39 @@
 {% extends 'base.html' %}
 {% block Content %}
   <div class="Content flex-column Register-Section">
-    <label class="lbl pb-10 w-80 br-0 bb-2sb font-72 my-10 text-center">Estebyan | Questionnaire</label>
-    <form class="Register-Form flex-column" action="{% url 'Signing_Up' %}" method="post">
+    <label class="lbl pb-10 w-80 br-0 bb-2sb font-72 my-10 text-center res-font-22">Estebyan | Questionnaire</label>
+    <form class="Register-Form flex-column w-80 my-10" action="{% url 'Signing_Up' %}" method="post">
       {% csrf_token %}
-      <p class="Message-Error field text-center font-18 cl-red w-60">{{ MsgError}}</p>
-      <div class="field w-60 flex-row">
-        <label class="lbl w-30" for="FirstName_Input">First Name</label>
+      <p class="Message-Error field text-center font-18 cl-red w-80">{{ MsgError}}</p>
+      <div class="field w-100 flex-row-column">
+        <label class="lbl w-30 res-w-100" for="FirstName_Input">First Name</label>
         <input class="npt flex-grow" type="text" name="FirstName_Input" value="" required>
       </div>
-      <div class="field w-60 flex-row">
-        <label class="lbl w-30" for="LastName_Input">Last Name</label>
+      <div class="field w-100 flex-row-column">
+        <label class="lbl w-30 res-w-100" for="LastName_Input">Last Name</label>
         <input class="npt flex-grow" type="text" name="LastName_Input" value="" required>
       </div>
-      <div class="field w-60 flex-row">
-        <label class="lbl w-30" for="Birthdate_Input">Birthdate</label>
+      <div class="field w-100 flex-row-column">
+        <label class="lbl w-30 res-w-100" for="Birthdate_Input">Birthdate</label>
         <input class="npt flex-grow" type="date" name="Birthdate_Input" value="" required>
       </div>
-      <div class="field w-60 flex-row">
-        <label class="lbl w-30" for="Reg_UserName_Input">User Name</label>
+      <div class="field w-100 flex-row-column">
+        <label class="lbl w-30 res-w-100" for="Reg_UserName_Input">User Name</label>
         <input class="npt flex-grow" type="text" name="Reg_UserName_Input" value="" required>
       </div>
-      <div class="field w-60 flex-row">
-        <label class="lbl w-30" for="Email_Input">Email</label>
+      <div class="field w-100 flex-row-column">
+        <label class="lbl w-30 res-w-100" for="Email_Input">Email</label>
         <input class="npt flex-grow" type="email" name="Email_Input" value="" required>
       </div>
-      <div class="field w-60 flex-row">
-        <label class="lbl w-30" for="Reg_Password_Input">Password</label>
+      <div class="field w-100 flex-row-column">
+        <label class="lbl w-30 res-w-100" for="Reg_Password_Input">Password</label>
         <input class="npt flex-grow" type="password" name="Reg_Password_Input" value="" required>
       </div>
-      <div class="field w-60 flex-row">
-        <label class="lbl w-30" for="ConfPassword_Input">Confirm Password</label>
+      <div class="field w-100 flex-row-column">
+        <label class="lbl w-30 res-w-100" for="ConfPassword_Input">Confirm Password</label>
         <input class="npt flex-grow" type="password" name="ConfPassword_Input" value="" required>
       </div>
-      <div class="field w-60 flex-row">
+      <div class="field w-100 flex-row-column">
         <input class="npt npt-submit flex-grow" type="submit" name="SignUp_Input" value="Sign Up">
       </div>
     </form>

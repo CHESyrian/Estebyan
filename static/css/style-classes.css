@@ -162,6 +162,9 @@
   line-height: 60px;
 }
 /*-------------------------- Background Colors --------------------------*/
+.bg-original {
+  background-color: rgb(160, 250, 160);
+}
 .bg-red {
   background-color: red;
 }
@@ -388,6 +391,10 @@
 .flex-row-wrap {
   display: flex;
   flex-flow: row wrap;
+}
+.flex-row-column {
+  display: flex;
+  flex-flow: row nowrap;
 }
 .flex-grow {
   flex-grow: 1;

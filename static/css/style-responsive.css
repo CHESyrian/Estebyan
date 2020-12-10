@@ -3,19 +3,36 @@
 }
 
 @media (max-width: 712px) {
-  .res-flex-column {
+  .flex-row-column {
     display: flex;
     flex-flow: column nowrap;
   }
+  .res-w-100 {
+    width: 100%;
+  }
+  .res-font-22 {
+    font-size: 22px;
+  }
+  .res-Sandwish {
+    display: block;
+  }
   .NavBar {
-    height: auto;
+    height: 60px;
+  }
+  .Sandwish {
+    display: none;
   }
   .Nav-Search {
     width: 100%;
+    display: none;
   }
-  .Nav-Link,
+  .Nav-Link {
+    width: 100%;
+    margin: 0;
+  }
   .Nav-List {
     width: 100%;
     margin: 0;
+    display: none;
   }
 }

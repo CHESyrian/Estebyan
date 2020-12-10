@@ -19,7 +19,8 @@ body {
   line-height: 60px;
   background-color: rgb(120, 220, 120);
 }
-.Sandwish {
+.Sandwish,
+.res-Sandwish {
   height: 60px;
   line-height: 60px;
   font-size: 32px;
@@ -77,6 +78,7 @@ body {
   width: 0;
   overflow: auto;
   transition: width 1s linear;
+  z-index: 2;
 }
 .SideBar-Title {
   text-align: center;

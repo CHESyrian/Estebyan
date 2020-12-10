@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 {% block Content %}
 <div class="Content flex-column">
-  <label class="lbl pb-10 w-80 br-0 bb-2sb font-72 my-10 text-center">Estebyan | Questionnaire</label>
-  <form class="Login-Form flex-column w-80 my-10" action="{% url 'Logging' %}" method="post">
+  <label class="lbl pb-10 w-60 br-0 bb-2sb font-72 my-10 text-center res-font-22">Estebyan | Questionnaire</label>
+  <form class="Login-Form flex-column w-60 my-10" action="{% url 'Logging' %}" method="post">
     {% csrf_token %}
-    <div class="field w-60 flex-row">
-      <label class="lbl w-30" for="Log_UserName_Input">User Name</label>
+    <div class="field w-100 flex-row-column">
+      <label class="lbl w-30 res-w-100" for="Log_UserName_Input">User Name</label>
       <input class="npt flex-grow" type="text" name="Log_UserName_Input">
     </div>
-    <div class="field w-60 flex-row">
-      <label class="lbl w-30" for="Log_Password_Input">Password</label>
+    <div class="field w-100 flex-row-column">
+      <label class="lbl w-30 res-w-100" for="Log_Password_Input">Password</label>
       <input class="npt flex-grow" type="password" name="Log_Password_Input">
     </div>
-    <div class="field w-60 flex-row">
-      <input class="btn npt-submit flex-grow" type="submit" name="Login_Input" value="Login">
+    <div class="field w-100 flex-row-column">
+      <input class="btn npt-submit w-100" type="submit" name="Login_Input" value="Login">
     </div>
   </form>
   <div class="field w-60">

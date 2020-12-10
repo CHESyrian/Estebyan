@@ -1,4 +1,4 @@
-<div class="SideBar">
+<div class="SideBar bg-original">
   {% if request.user.is_authenticated %}
   <a href="{% url 'Add_Questionnaire' request.user.username %}" class="not-link btn npt-submit br-5 m-10 text-center">+Add Questionnaire</a>
   {% endif %}

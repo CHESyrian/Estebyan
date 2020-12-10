@@ -4,6 +4,9 @@ $(document).ready(function() {
     $('.SideBar').toggleClass('w-15');
     $('.Content').toggleClass('w-85');
   })
+  $('.res-Sandwish').click(function() {
+    $('.SideBar').toggleClass('w-100');
+  })
   // Addd Question Field Event.
   $('.Add-QField').click(function() {
     var fieldNum = $('div[class^="QField"]').length + 1;
@@ -120,7 +123,7 @@ $(document).ready(function() {
       }
     })
   })
-  
+
 })
 
 /*
