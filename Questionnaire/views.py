@@ -133,8 +133,3 @@ def Download_Data(request, usrnm, filename, filetype):
                 raise Http404
     else:
         raise Http404
-
-
-@login_required(login_url='/authentication/login/')
-def Search(request, usrnm, keyword):
-    pass

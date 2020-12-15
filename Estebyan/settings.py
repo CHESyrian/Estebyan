@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Authentication',
     'Accounts',
     'Questionnaire',
+    'Explore',
     'Support'
 ]
 

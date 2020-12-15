@@ -14,8 +14,13 @@
     <a class="Nav-Link hover-link hover-bb2sw" href="#">Docs</a>
     <a class="Nav-Link hover-link hover-bb2sw" href="#">Support</a>
   </div>
-  <form class="Nav-Search flex-row p-5">
-    <div class="flex-grow"> <input class="Search-Input bb-sw w-100" type="text" name="SearchInput" placeholder="Search"></div>
-    <div class="Search-Icon"> <i class="fas fa-search font-28 cl-white icon-link text-center"> </i> </div>
+  <form class="Nav-Search flex-row p-5" action="{% url 'Search' %}" method="post">
+    {% csrf_token %}
+    <div class="flex-grow mr-10">
+      <input class="Search-Input bb-sw w-100" type="text" name="SearchInput" placeholder="Search">
+    </div>
+    <div class="Search-Icon">
+      <button class="btn npt-submit" type="submit"><i class="fas fa-search font-28 cl-white icon-link text-center"></i></button>
+    </div>
   </form>
 </div>

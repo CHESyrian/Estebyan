@@ -25,6 +25,7 @@ urlpatterns = [
     path('authentication/', include('Authentication.urls')),
     path('accounts/', include('Accounts.urls')),
     path('questionnaire/', include('Questionnaire.urls')),
+    path('explore/', include('Explore.urls')),
     path('support/', include('Support.urls'))
 ] \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
